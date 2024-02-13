@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
     const [featuredPlace, setFeaturedPlace] = useState(null);
-    const [selectedBlog, setSelectedBlog] = useState(null); // Nuevo estado para almacenar el blog seleccionado
-    const [isModalOpen, setIsModalOpen] = useState(false); // Nuevo estado para controlar si el modal está abierto o cerrado
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -23,19 +21,15 @@ const Home = () => {
         fetchFeaturedPlace();
     }, []);
 
-    const handleVerMasClick = (blog) => {
-        setSelectedBlog(blog); // Establecer el blog seleccionado
-        setIsModalOpen(true); // Abrir el modal
-    };
-
-    const handleModalClose = () => {
-        setIsModalOpen(false); // Cerrar el modal
-    };
-
-    const handleVerBlogClick = () => {
-        // Navegar a la ruta deseada cuando se hace clic en "Ver blog"
+    const handleVerMasClick = () => {
+        // Navegar a la ruta deseada cuando se hace clic en "Ver más"
         navigate('/categories');
     };
+    const handleRestauranteClick = () => {
+        // Navegar a la página de edición cuando se hace clic en "Ver más" del restaurante
+        navigate('/create');
+    };
+    
 
     return (
         <div className="container">
@@ -48,7 +42,8 @@ const Home = () => {
                                     <h5 className="card-title">{featuredPlace.title} - Destacado del mes</h5>
                                     <img src={featuredPlace.Url_image} className="card-img-top img-fluid" alt="Lugar destacado" />
                                     <p className="card-text">{featuredPlace.content}</p>
-                                    <button onClick={() => handleVerMasClick(featuredPlace)} className="btn btn-primary">Ver más</button>
+                                    {/* Usar navigate en lugar de Link */}
+                                    <button onClick={handleVerMasClick} className="btn btn-primary">Ver más</button>
                                 </>
                             )}
                         </div>
@@ -57,35 +52,13 @@ const Home = () => {
                 <div className="col-md-6">
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">Restaurante del mes</h5>
-                            <p className="card-text">¡Conoce nuestro restaurante destacado del mes!</p>
-                            <button onClick={handleVerBlogClick} className="btn btn-primary">Ver blog</button>
+                            <h5 className="card-title">Comparte tus experiencias de vida</h5>
+                            <p className="card-text">¡Ayuda a nuestros lectores a seguir descubriendo experiencias!</p>
+                            <button onClick={handleRestauranteClick} className="btn btn-primary">Crear</button>
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* Modal */}
-            {isModalOpen && selectedBlog && (
-                <div className="modal">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">{selectedBlog.title}</h5>
-                                <button type="button" className="btn-close" onClick={handleModalClose}></button>
-                            </div>
-                            <div className="modal-body">
-                                <img src={selectedBlog.Url_image} alt={selectedBlog.title} className="img-fluid mb-3" />
-                                <p>{selectedBlog.content}</p>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={handleModalClose}>Cerrar</button>
-                                <button type="button" className="btn btn-primary" onClick={handleVerBlogClick}>Ver Blog</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 };
