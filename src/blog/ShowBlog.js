@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Pagination } from 'react-bootstrap';
 
 const URI = 'http://localhost:8000/blogs';
 
 const CompShowBlogs = () => {
     const [blogs, setBlogs] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [blogsPerPage] = useState(4);
 
     useEffect(() => {
         getBlogs();
@@ -33,6 +36,14 @@ const CompShowBlogs = () => {
         }
     };
 
+    // Obtener los blogs actuales en la página
+    const indexOfLastBlog = currentPage * blogsPerPage;
+    const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+    const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
+
+    // Cambiar de página
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     return (
         <div className='container'>
             <div className="row">
@@ -48,12 +59,12 @@ const CompShowBlogs = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {blogs.map((blog) => (
+                            {currentBlogs.map((blog) => (
                                 <tr key={blog.id}>
                                     <td>{blog.title}</td>
                                     <td>{blog.content}</td>
                                     <td>
-                                        <img src={blog.Url_image} alt={blog.title} style={{ maxWidth: '80px' }} />
+                                        <img src={blog.Url_image} alt={blog.title} style={{ width: '80px', height: '80px', objectFit: 'cover' }} />
                                     </td>
                                     <td>
                                         <Link to={`/edit/${blog.id}`} className="btn btn-info"><i className="fa-regular fa-pen-to-square"></i></Link>
@@ -65,8 +76,20 @@ const CompShowBlogs = () => {
                     </table>
                 </div>
             </div>
+            <div className="row">
+                <div className="col">
+                    <Pagination>
+                        {Array.from({ length: Math.ceil(blogs.length / blogsPerPage) }, (_, index) => (
+                            <Pagination.Item key={index + 1} active={index + 1 === currentPage} onClick={() => paginate(index + 1)}>
+                                {index + 1}
+                            </Pagination.Item>
+                        ))}
+                    </Pagination>
+                </div>
+            </div>
         </div>
     );
 };
 
 export default CompShowBlogs;
+

@@ -7,33 +7,32 @@ const URI = 'http://localhost:8000/blogs';
 const CompEditBlog = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    // const [Url_image, setUrl_image ]= useState('');
+    const [Url_image, setUrl_image] = useState('');
     const navigate = useNavigate();
-    const { id } = useParams(); // Utiliza destructuring para extraer el id de los parámetros
+    const { id } = useParams();
 
     useEffect(() => {
         const getBlogById = async () => {
             try {
-                const res = await axios.get(`${URI}/${id}`); // Corrige la URL para incluir el id correctamente
+                const res = await axios.get(`${URI}/${id}`);
                 setTitle(res.data.title);
                 setContent(res.data.content);
-                // setUrl_Image(res.setUrl_image);
+                setUrl_image(res.data.Url_image); // Aquí ajustamos para usar Url_image
             } catch (error) {
                 console.error("Error fetching blog by id:", error);
             }
         };
         
-        getBlogById(); // Llama a getBlogById dentro de useEffect
-    }, [id]); // Agrega [id] como dependencia para que se vuelva a ejecutar cuando cambie el id
+        getBlogById();
+    }, [id]);
 
-    // Procedimiento para actualizar
     const update = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`${URI}/${id}`, { // Corrige la URL para incluir el id correctamente
+            await axios.put(`${URI}/${id}`, {
                 title: title,
                 content: content,
-                // Url_image: Url_image
+                Url_image: Url_image // Ajustamos para usar Url_image
             });
             navigate('/');
         } catch (error) {
@@ -41,7 +40,6 @@ const CompEditBlog = () => {
         }
     };
 
-    // Devuelve el JSX del componente
     return (
         <div>
             <h3>Edit Post</h3>
@@ -60,6 +58,15 @@ const CompEditBlog = () => {
                     <textarea
                         value={content}
                         onChange={(e) => setContent(e.target.value)}
+                        type="text"
+                        className="form-control"
+                    />
+                </div>
+                <div className='mb-3'>
+                    <label className="form-label">Image URL</label>
+                    <input
+                        value={Url_image}
+                        onChange={(e) => setUrl_image(e.target.value)}
                         type="text"
                         className="form-control"
                     />
