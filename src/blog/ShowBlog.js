@@ -45,39 +45,26 @@ const CompShowBlogs = () => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
-        <div className='container'>
-            <div className="row">
-                <div className="col">
-                    <Link to="/create" className="btn btn-primary mt-2 mb-2"><i className="fa-solid fa-plus"></i></Link>
-                    <table className="table">
-                        <thead className='table-primary'>
-                            <tr>
-                                <th>Title</th>
-                                <th>Content</th>
-                                <th>Url_image</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {currentBlogs.map((blog) => (
-                                <tr key={blog.id}>
-                                    <td>{blog.title}</td>
-                                    <td>{blog.content}</td>
-                                    <td>
-                                        <img src={blog.Url_image} alt={blog.title} style={{ width: '80px', height: '80px', objectFit: 'cover' }} />
-                                    </td>
-                                    <td>
-                                        <Link to={`/edit/${blog.id}`} className="btn btn-info"><i className="fa-regular fa-pen-to-square"></i></Link>
-                                        <button onClick={() => deleteBlog(blog.id)} className="btn btn-danger"><i className="fa-solid fa-trash"></i></button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
+        <div className="container">
+            <div className="row justify-content-center mt-4">
+                {currentBlogs.map((blog) => (
+                    <div className="col-md-6 mb-4" key={blog.id}>
+                        <div className="card">
+                            <div className="card-body">
+                                <h5 className="card-title">{blog.title}</h5>
+                                <p className="card-text">{blog.content}</p>
+                                <img src={blog.Url_image} alt={blog.title} className="card-img-top" style={{ width: '100%', height: 'auto' }} />
+                                <div className="d-flex justify-content-between mt-3">
+                                    <Link to={`/edit/${blog.id}`} className="btn btn-info"><i className="fa-regular fa-pen-to-square"></i></Link>
+                                    <button onClick={() => deleteBlog(blog.id)} className="btn btn-danger"><i className="fa-solid fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
             <div className="row">
-                <div className="col">
+                <div className="col d-flex justify-content-center">
                     <Pagination>
                         {Array.from({ length: Math.ceil(blogs.length / blogsPerPage) }, (_, index) => (
                             <Pagination.Item key={index + 1} active={index + 1 === currentPage} onClick={() => paginate(index + 1)}>
