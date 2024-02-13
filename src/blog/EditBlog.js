@@ -7,6 +7,7 @@ const URI = 'http://localhost:8000/blogs';
 const CompEditBlog = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    // const [Url_image, setUrl_image ]= useState('');
     const navigate = useNavigate();
     const { id } = useParams(); // Utiliza destructuring para extraer el id de los parámetros
 
@@ -16,6 +17,7 @@ const CompEditBlog = () => {
                 const res = await axios.get(`${URI}/${id}`); // Corrige la URL para incluir el id correctamente
                 setTitle(res.data.title);
                 setContent(res.data.content);
+                // setUrl_Image(res.setUrl_image);
             } catch (error) {
                 console.error("Error fetching blog by id:", error);
             }
@@ -30,7 +32,8 @@ const CompEditBlog = () => {
         try {
             await axios.put(`${URI}/${id}`, { // Corrige la URL para incluir el id correctamente
                 title: title,
-                content: content
+                content: content,
+                // Url_image: Url_image
             });
             navigate('/');
         } catch (error) {

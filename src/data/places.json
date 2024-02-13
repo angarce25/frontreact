@@ -1,0 +1,49 @@
+[
+    {
+        "id": 1,
+        "name": "Calpe",
+        "category": "Alicante",
+        "description":"Campello es un pintoresco pueblo costero en Alicante, España, famoso por sus playas doradas y aguas cristalinas. Es ideal para relajarse y disfrutar del sol mediterráneo, con encantadoras calles históricas y una vibrante vida cultural. un paraíso costero en la Costa Blanca, te sorprenderá con su emblemático Peñón de Ifach que se eleva majestuosamente sobre el mar Mediterráneo",
+        "imgUrl": "./images/calpe.jpg"
+    },
+    {
+        "id": 2,
+        "name": "San Juan de Alicante",
+        "category": "Alicante",
+        "description": "San Juan de Alicante te invita a disfrutar del encanto mediterráneo en la Costa Blanca. Sus amplias playas de arena dorada, bordeadas por palmeras, son el lugar perfecto para relajarse bajo el cálido sol. Explora su paseo marítimo lleno de vida y energía, donde encontrarás una gran variedad de bares, restaurantes y tiendas. Sumérgete en la cultura local visitando su histórica iglesia y descubre la hospitalidad de sus habitantes. En San Juan, cada día es una nueva aventura junto al mar Mediterráneo.",
+        "imgUrl": "./images/sanJuan.jpg"
+      
+    },
+    {
+        "id": 3,
+        "name": "Campello",
+        "category": "Alicante",
+        "description": "Campello, un encantador pueblo costero en la Costa Blanca, te espera con sus playas de arena dorada y aguas cristalinas. Déjate seducir por su encanto mediterráneo, pasea por su hermoso paseo marítimo y disfruta de la brisa marina. Explora su casco antiguo, lleno de historia y tradición, y descubre sus pintorescas calles y plazas. Con una amplia oferta gastronómica y cultural, Campello es el destino perfecto para unas vacaciones inolvidables junto al mar.",
+        "imgUrl": "./images/Campelli.webp"
+        
+    },
+    {
+        "id": 4,
+        "name": "Altea",
+        "category": "Alicante",
+        "description": "Embárcate en un viaje de descubrimiento en Altea, donde las casas blancas contrastan con el azul del mar Mediterráneo. Disfruta de su encanto bohemio, sus calles adoquinadas y sus vistas panorámicas. Altea te invita a explorar su historia, relajarte en sus playas y saborear su exquisita gastronomía mediterránea. ¡Una experiencia inolvidable te espera en este rincón de la Costa Blanca!",
+        "imgUrl": "./images/altea1.jpg"
+     
+    },
+    {
+        "id": 5,
+        "name": "Moraira",
+        "category": "Alicante",
+        "description": "Moraira, un tesoro escondido en la Costa Blanca, te cautivará con su belleza natural y su ambiente tranquilo. Disfruta de sus playas de arena fina, sus impresionantes acantilados y sus aguas cristalinas ideales para bucear. Sumérgete en la vida marinera de su puerto, explora sus pintorescas calles y saborea la deliciosa cocina local en sus acogedores restaurantes. Moraira te espera con los brazos abiertos para una escapada inolvidable junto al mar Mediterráneo.",
+        "imgUrl": "./images/moraira.jpg"
+
+    },
+    {
+        "id": 6,
+        "name": "Villajoyosa",
+        "category": "Alicante",
+        "description":"Villajoyosa, una joya escondida en la costa de la Costa Blanca, te cautivará con su encanto pintoresco y su rica historia. Pasea por sus coloridas casas frente al mar, que contrastan con el azul intenso del Mediterráneo. Descubre su pasado marinero en el casco antiguo, donde encontrarás estrechas calles empedradas y encantadoras plazas. Saborea su famoso chocolate en alguna de sus chocolaterías tradicionales y relájate en sus playas de arena dorada. En Villajoyosa, la autenticidad y la belleza se unen para crear una experiencia única en la Costa Blanca.",
+        "imgUrl": "./images/vila.jpg"
+       
+    }
+]
