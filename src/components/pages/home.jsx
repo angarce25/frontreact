@@ -40,7 +40,7 @@ const Home = () => {
     return (
         <main>
             <section className="container">
-            <Carousel>
+            <Carousel interval={3000}> {/* Cambia el intervalo a tu preferencia, 3000ms = 3 segundos */}
                     <Carousel.Item>
                         <img
                             className="d-block w-100"
@@ -123,4 +123,3 @@ const Home = () => {
 };
 
 export default Home;
-
