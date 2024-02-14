@@ -21,13 +21,10 @@ function Navbar() {
                     </div>
                     <ul className="nav justify-content-center">
                     <li className="nav-item">
-                        <NavLink className="nav-link text-secondary" to="/" activeClassName="text-dark">Home</NavLink>
+                        <NavLink className="nav-link text-secondary" to="/" activeClassName="text-dark">Inicio</NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink className="nav-link text-secondary" to="/categories" activeClassName="text-dark">Blogs</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="nav-link text-secondary" to="/contact" activeClassName="text-dark">Contact</NavLink>
+                        <NavLink className="nav-link text-secondary" to="/categories" activeClassName="text-dark">Categorías</NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink className="nav-link text-secondary" to="/login" activeClassName="text-dark">Login</NavLink>

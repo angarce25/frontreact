@@ -12,4 +12,10 @@ code {
     monospace;
 }
 
+/* Estilos personalizados para el carrusel */
+.carousel-item {
+  max-height: 700px; /* Altura máxima para todas las imágenes */
+}
+
+
 
